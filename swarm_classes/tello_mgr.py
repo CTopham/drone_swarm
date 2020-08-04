@@ -33,7 +33,7 @@ class TelloMgr(object):
         self.receive_thread.daemon = True
         self.receive_thread.start()
         #Setup list of drone IP addresses 
-        self.tello_ip_list = ['192.168.0.101', '192.168.0.102']
+        self.tello_ip_list = ['192.168.0.100', '192.168.0.102']
         #list of tello class objects after receiving first OK response from command cmd
         self.tello_list = []
         self.log = defaultdict(list)
@@ -98,7 +98,7 @@ class TelloMgr(object):
                     #100 indicates OK and to continue (http)
                     self.last_response_idx[ip] = 100
                     self.tello_list.append(Tello(ip, self))
-                    self.str_cmd_index[ip] = 1
+                    #self.str_cmd_index[ip] = 1
                 
                 #TODO -  confirm single/multi response/command item
                 # print(f'[SINGLE_RESPONSE], IP={ip}, RESPONSE={self.response}')

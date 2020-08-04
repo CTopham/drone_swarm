@@ -44,7 +44,7 @@ def receive():
     except Exception as e:
       # If there's an error close the socket and break out of the loop
       sock1.close()
-      sock2.close()
+      #sock2.close()
       print("Error receiving: " + str(e))
       break
 
@@ -55,7 +55,7 @@ receiveThread.daemon = True
 receiveThread.start()
 
 # Each leg of the box will be 100 cm. Tello uses cm units by default.
-box_leg_distance = 20
+box_leg_distance = 50
 
 # Yaw 90 degrees
 yaw_angle = 90
@@ -67,16 +67,21 @@ yaw_direction = "cw"
 send("command", 3)
 
 # Send the takeoff command
-send("takeoff", 2)
+send("takeoff", 3)
 
-send("back 20", 4)
+
+
 
 # Loop and create each leg of the box
 for i in range(4):
   # Fly forward
-  send("forward " + str(box_leg_distance), 4)
+  send("rc 0 %s 0 0" % str(box_leg_distance), 3)
+  #fly up
+  send("rc 0 0 30 0", 1)
   # Yaw right
   send("cw " + str(yaw_angle), 3)
+   #fly down
+  send("rc 0 0 -30 0", 1)
 
 # Land
 send("land", 2)

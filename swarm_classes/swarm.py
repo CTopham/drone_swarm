@@ -81,19 +81,17 @@ class Swarm(object):
         self.tellos = []
         self.pools = []
         self.sn2ip = {
-            '0TQZGANED0021X': '192.168.0.101',
+            '0TQZGANED0021X': '192.168.0.100',
             '0TQZGANED0020C': '192.168.0.102',
-            '0TQZGANED0023H': '192.168.3.104'
         }
         self.id2sn = {
             0: '0TQZGANED0021X',
             1: '0TQZGANED0020C',
-            2: '0TQZGANED0023H'
+        
         }
         self.ip2id = {
-            '192.168.0.101': 0,
+            '192.168.0.100': 0,
             '192.168.3.102': 1,
-            '192.168.3.104': 2
         }
 
     def start(self):

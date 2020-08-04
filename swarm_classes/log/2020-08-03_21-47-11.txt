@@ -1,0 +1,6 @@
+------
+Drone: 1
+id=0, command=land, response=error, start_time=2020-08-03 21:47:01.054452, end_time=2020-08-03 21:47:01.083364, duration=0.028912
+------
+Drone: 2
+id=0, command=land, response=None, start_time=2020-08-03 21:47:01.086354, end_time=None, duration=None
